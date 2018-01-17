@@ -6,6 +6,16 @@
  */
 int main(void)
 {
-	printf("Size of a char: 1 byte(s)\nSize of an int: 4 byte(s)\nSize of a long int: 4 byte(s)\nSize of a long long int: 8 byte(s)\nSize of a float: 4 byte(s)\n");
-	return(0);
+	char a;
+	int b;
+	long int c;
+	long long int d;
+	float e;
+
+	puts("Size of a char: " + sizeof(a) + " byte(s)");
+	puts("Size of an int: " + sizeof(b) + " byte(s)");
+	puts("Size of a long int: " + sizeof(c) + " byte(s)");
+	puts("Size of a long long int: " + sizeof(b) + " byte(s)");
+	puts("Size of a float: " + sizeof(b) + " byte(s)");
+	return (0);
 }
