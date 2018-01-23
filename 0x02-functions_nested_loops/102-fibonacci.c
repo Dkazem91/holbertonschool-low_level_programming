@@ -6,7 +6,7 @@
  */
 int main(void)
 {
-	int counter = 1;
+	int counter = 0;
 	long int a = 1;
 	long int b = a + 1;
 	long int c = a + b;
@@ -25,4 +25,5 @@ int main(void)
 		}
 	}
 	printf("\n");
+	return(0);
 }
