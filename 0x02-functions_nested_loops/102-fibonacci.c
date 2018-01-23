@@ -12,18 +12,18 @@ int main(void)
 	long int c = a + b;
 
 	printf("%ld, %ld, ", a, b);
-	while (counter <= 50)
+	while (counter < 50)
 	{
 		printf("%ld", c);
 		counter++;
 		a = b;
 		b = c;
 		c = a + b;
-		if (counter != 51)
+		if (counter < 50)
 		{
 			printf(", ");
 		}
 	}
 	printf("\n");
-	return(0);
+	return (0);
 }
