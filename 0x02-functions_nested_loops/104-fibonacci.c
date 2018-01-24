@@ -7,14 +7,14 @@
 int main(void)
 {
 	int counter = 2;
-	unsigned int a = 1;
-	unsigned int b = a + 1;
-        unsigned int c = a + b;
+	long double a = 1;
+	long double b = a + 1;
+	long double c = a + b;
 
-	printf("%u, %u, ", a, b);
+	printf("%.0Lf, %.0Lf, ", a, b);
 	while (counter < 98)
 	{
-		printf("%u", c);
+		printf("%.0Lf", c);
 		counter++;
 		a = b;
 		b = c;
