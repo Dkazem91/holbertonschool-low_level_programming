@@ -13,14 +13,14 @@ int main(void)
 	long double c = a + b;
 
 	printf("%.0Lf, %.0Lf, ", a, b);
-	while (counter < 98)
+	while (counter < 97)
 	{
 		printf("%.0Lf", c);
 		counter++;
 		a = b;
 		b = c;
 		c = a + b;
-		if (counter < 98)
+		if (counter < 97)
 		{
 			printf(", ");
 		}
