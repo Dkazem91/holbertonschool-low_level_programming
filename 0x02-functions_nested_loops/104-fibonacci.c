@@ -8,14 +8,14 @@ int main(void)
 {
 	int counter = 2;
 
-	long double a = 1;
-	long double b = a + 1;
-	long double c = a + b;
+	double a = 1;
+	double b = a + 1;
+	double c = a + b;
 
-	printf("%.0Lf, %.0Lf, ", a, b);
+	printf("%.0f, %.0f, ", a, b);
 	while (counter < 97)
 	{
-		printf("%.0Lf", c);
+		printf("%.0f", c);
 		counter++;
 		a = b;
 		b = c;
