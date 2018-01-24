@@ -7,6 +7,7 @@
 int main(void)
 {
 	int counter = 2;
+
 	long double a = 1;
 	long double b = a + 1;
 	long double c = a + b;
