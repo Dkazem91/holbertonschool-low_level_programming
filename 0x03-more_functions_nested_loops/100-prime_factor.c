@@ -11,7 +11,7 @@ int main(void)
 
 	while (a != n)
 	{
-		if(n % a == 0)
+		if (n % a == 0)
 		{
 			n = n / a;
 		} else
