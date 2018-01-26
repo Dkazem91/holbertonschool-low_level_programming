@@ -13,6 +13,10 @@ void print_number(int n)
 	unsigned int y = n;
 	int c = 0;
 
+	if (n == 0)
+	{
+		_putchar('0');
+	}
 	if (n < 0)
 	{
 		_putchar('-');
@@ -23,10 +27,7 @@ void print_number(int n)
 		x += 1;
 		y += 1;
 	}
-	if (n == 0)
-	{
-		_putchar('0');
-	}
+
 	while (x != 0)
 	{
 		x = x / 10;
@@ -38,7 +39,7 @@ void print_number(int n)
 	}
 	for (i = 0; i < c; i++)
 	{
-		_putchar((y / d) + '0');
+		_putchar(y / d + '0');
 		y = y % d;
 		d = d / 10;
 	}
