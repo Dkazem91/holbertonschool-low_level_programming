@@ -9,13 +9,19 @@ void print_number(int n)
 {
 	int i;
 	int d = 1;
-	int x = n;
+	unsigned int x = n;
+	unsigned int y = n;
 	int c = 0;
 
 	if (n < 0)
 	{
 		_putchar('-');
+		n = n + 1;
 		n = -n;
+		y = n;
+		x = n;
+		x += 1;
+		y += 1;
 	}
 	if (n == 0)
 	{
@@ -32,8 +38,8 @@ void print_number(int n)
 	}
 	for (i = 0; i < c; i++)
 	{
-		_putchar((n / d) + '0');
-		n = n % d;
+		_putchar((y / d) + '0');
+		y = y % d;
 		d = d / 10;
 	}
 }
