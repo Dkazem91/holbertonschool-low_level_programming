@@ -36,10 +36,10 @@ int _atoi(char *s)
 	}
 	if (np >= 0)
 	{
-		np = 1;
+		num *= 1;
 	} else
 	{
-		np = -1;
+		num *= -1;
 	}
-	return (num * np);
+	return (num);
 }
