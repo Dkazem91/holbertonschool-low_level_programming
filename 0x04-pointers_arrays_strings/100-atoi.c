@@ -1,12 +1,5 @@
 #include "holberton.h"
-int _strlen(char *s)
-{
-        int i;
-
-        for (i = 0; s[i] != '\0'; i++)
-        {}
-        return (i);
-}
+#include "2-strlen.c"
 
 /**
  * _atoi - converts string to integer
