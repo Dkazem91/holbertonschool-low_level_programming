@@ -1,6 +1,12 @@
 #ifndef _HOLBERTON_H_
 #define _HOLBERTON_H_
 /**
+ * _atoi - convert char to int
+ * @s: string
+ * Return: returns a value
+ */
+int _atoi(char *s);
+/**
  * _strcpy - main function
  * @dest: destination
  * @src: source
