@@ -30,7 +30,7 @@ char *cap_string(char *s)
 	{
 		if (_indexOf(s[i]))
 			continue;
-		if (s[i] >= 'a' && s[i] <= 'z' && _indexOf(s[i - 1]))
+		if (s[i] >= 'a' && s[i] <= 'z' && (_indexOf(s[i - 1]) || i == 0))
 			s[i] = s[i] - 32;
 
 	}
