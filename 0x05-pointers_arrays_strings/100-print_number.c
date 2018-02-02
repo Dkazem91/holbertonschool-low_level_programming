@@ -6,9 +6,9 @@
  */
 void print_number(int n)
 {
-	int abs;
+	unsigned int abs;
 	int mult = 1;
-	int abSCount;
+	unsigned int abSCount;
 	int i;
 	int c = 0;
 
