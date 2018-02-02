@@ -1,6 +1,11 @@
 #ifndef _HOLBERTON_H_
 #define _HOLBERTON_H_
 /**
+ * print_number- prints a number
+ * @n: number to print to character
+ */
+void print_number(int n);
+/**
  * rot13 - converts to rot13
  * @s: string to convert to rot13
  * Return: returns a char
