@@ -1,6 +1,31 @@
 #ifndef _HOLBERTON_H_
 #define _HOLBERTON_H_
 /**
+ * set_string - sets string to something
+ * @s: string to set to
+ * @to: set to
+ */
+void set_string(char **s, char *to);
+/**
+ * print_diagsums - prints diagonal sums
+ * @a: array to do
+ * @size: size of arrays
+ */
+void print_diagsums(int *a, int size);
+/**
+ * print_chessboard - prints board
+ * @a: prints a characters
+ *
+ */
+void print_chessboard(char (*a)[8]);
+/**
+ * _strstr - locates substring
+ * @haystack: string to locate substring
+ * @needle: string to locate
+ * Return: return string found
+ */
+char *_strstr(char *haystack, char *needle);
+/**
  * _strpbrk - search string for all chars
  * @s: string to search
  * @accept: accepting string
