@@ -20,8 +20,8 @@ char *_strstr(char *haystack, char *needle)
 					break;
 			}
 			if (needle[j] == '\0')
-				s = &s[i]
-				return (s);
+				haystack = &haystack[i];
+				return (haystack);
 		}
 
 	}
