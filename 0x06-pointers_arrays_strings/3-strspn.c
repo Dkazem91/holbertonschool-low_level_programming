@@ -20,6 +20,7 @@ unsigned int _strspn(char *s, char *accept)
 				result++;
 				break;
 			}
+			return (0);
 		}
 	}
 	return (result);
