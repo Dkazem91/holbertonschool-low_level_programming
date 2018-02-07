@@ -1,6 +1,12 @@
 #ifndef _HOLBERTON_H_
 #define _HOLBERTON_H_
 /**
+ * factorial - return factorial
+ * @n: number to return
+ * Return: factorial or -1
+ */
+int factorial(int n);
+/**
  * _strlen_recursion - gets string length
  * @s: string to count
  * Return: int value
