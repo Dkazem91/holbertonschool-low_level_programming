@@ -1,6 +1,19 @@
 #ifndef _HOLBERTON_H_
 #define _HOLBERTON_H_
 /**
+ * _sqrt_recursion - square root of int
+ * @n: integer to root
+ * Return: int value
+ */
+int _sqrt_recursion(int n);
+/**
+ * _pow_recursion - gives power
+ * @x: integer to power
+ * @y: power to do
+ * Return: return integer value
+ */
+int _pow_recursion(int x, int y);
+/**
  * factorial - return factorial
  * @n: number to return
  * Return: factorial or -1
