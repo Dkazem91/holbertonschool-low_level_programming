@@ -1,6 +1,12 @@
 #ifndef _HOLBERTON_H_
 #define _HOLBERTON_H_
 /**
+ * is_print_number - is prime or not
+ * @n: integer to compare
+ * Return: boolean
+ */
+int is_prime_number(int n);
+/**
  * _sqrt_recursion - square root of int
  * @n: integer to root
  * Return: int value
