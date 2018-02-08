@@ -1,6 +1,12 @@
 #ifndef _HOLBERTON_H_
 #define _HOLBERTON_H_
 /**
+ * is_palindrome - is palindrome
+ * @s: string to do
+ * Return: boolean
+ */
+int is_palindrome(char *s);
+/**
  * is_print_number - is prime or not
  * @n: integer to compare
  * Return: boolean
