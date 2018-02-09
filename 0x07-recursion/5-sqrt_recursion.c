@@ -7,7 +7,7 @@
  */
 int helper(int i, int n)
 {
-	int j = 0;
+	int j;
 
 	if (i * i != n)
 	{
@@ -15,8 +15,8 @@ int helper(int i, int n)
 		{
 			return (-1);
 		}
-		j = j + helper(i + 1, n);
-		return (j += 1);
+		j = helper(i + 1, n);
+		return (j + 1);
 	}
 	return (0);
 }
