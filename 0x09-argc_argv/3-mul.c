@@ -1,5 +1,6 @@
 #include "holberton.h"
 #include <stdio.h>
+#include <stdlib.h>
 #define UNUSED(x) (void)(x)
 /**
  * main - main function
@@ -7,9 +8,11 @@
  * @argv: vector of arguments
  *Return: always 0
  */
-int main(int argc, char *argv[])
+int main(int argc, char  *argv[])
 {
-	UNUSED(argc);
-	printf("%s\n", argv[0]);
-	return (0);
+	if (argc == 3)
+		printf("%d\n", atoi(argv[1]) * atoi(argv[2]));
+	else
+		printf("Error\n");
+	return (1);
 }
