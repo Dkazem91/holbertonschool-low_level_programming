@@ -1,6 +1,7 @@
 #include "holberton.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 /**
  * main - main function
  * @argc: argumentc
@@ -13,6 +14,11 @@ int main(int argc, char  *argv[])
 
 	if (argc == 2)
 	{
+		if (strchr(argv[argc - 1], '-'))
+		{
+			printf("0\n");
+			return (1);
+		}
 
 		int money = atoi(argv[argc - 1]);
 
@@ -41,6 +47,7 @@ int main(int argc, char  *argv[])
 			}
 		}
 		printf("%d\n", coins);
+		return (1);
 	}
 	printf("Error\n");
 	return (1);
