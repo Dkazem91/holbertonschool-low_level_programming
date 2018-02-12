@@ -28,32 +28,25 @@ int main(int argc, char  *argv[])
 			{
 				money -= 25;
 				coins++;
-				continue;
-			}
-			if (money % 10 == 0)
+			} else if (money % 10 == 0)
 			{
 				money -= 10;
 				coins++;
-				continue;
-			}
-			if (money % 5 == 0)
+			} else if (money % 5 == 0)
 			{
 				money -= 5;
 				coins++;
-				continue;
-			}
-
-			if (money % 2 == 0)
+			} else if (money % 2 == 0)
 			{
 				money -= 2;
-				coins ++;
-				continue;
+				coins++;
+			} else
+			{
+				money--;
+				coins++;
 			}
-			money--;
-			coins++;
 		}
 		printf("%d\n", coins);
-		return (1);
 	}
 	printf("Error\n");
 	return (1);
