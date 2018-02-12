@@ -42,6 +42,13 @@ int main(int argc, char  *argv[])
 				coins++;
 				continue;
 			}
+
+			if (money % 2 == 0)
+			{
+				money -= 2;
+				coins ++;
+				continue;
+			}
 			money--;
 			coins++;
 		}
