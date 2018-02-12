@@ -13,11 +13,11 @@ int main(int argc, char  *argv[])
 
 	if (argc == 2)
 	{
-		int money = atoi(argv[argc-1]);
+		int money = atoi(argv[argc - 1]);
 
 		if (money < 0)
 		{
-			printf("Error\n");
+			printf("0\n");
 			return (1);
 		}
 
