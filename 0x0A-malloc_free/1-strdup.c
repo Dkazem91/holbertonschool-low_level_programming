@@ -12,8 +12,8 @@ char *_strdup(char *str)
 	int c = 0;
 	char *t;
 
-	if (str == NULL)
-		return (NULL);
+	if (str == '\0')
+		return ('\0');
 	while (str[c] != '\0')
 		c++;
 
