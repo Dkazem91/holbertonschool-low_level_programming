@@ -1,6 +1,12 @@
 #ifndef _HOLBERTON_H_
 #define _HOLBERTON_H_
 /**
+ * free_grid - frees a grid
+ * @grid: grid to free
+ * @height: height of grid
+ */
+void free_grid(int **grid, int height);
+/**
  * str_concat - concats strings
  * @s1: string one to concat
  * @s2: string 2 to concat
