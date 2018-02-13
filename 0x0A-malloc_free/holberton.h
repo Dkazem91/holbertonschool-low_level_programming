@@ -1,6 +1,20 @@
 #ifndef _HOLBERTON_H_
 #define _HOLBERTON_H_
 /**
+ * str_concat - concats strings
+ * @s1: string one to concat
+ * @s2: string 2 to concat
+ * Return: returns a concated string
+ */
+char *str_concat(char *s1, char *s2);
+/**
+ * alloc_grid - creates 2d array
+ * @width: width of array
+ * @height: height of array
+ * Return: pointer of double array
+ */
+int **alloc_grid(int width, int height);
+/**
  * _strdup - copies string
  * @str: string to copy
  * Return: character value
