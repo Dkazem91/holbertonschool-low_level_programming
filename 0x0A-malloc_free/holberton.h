@@ -1,6 +1,13 @@
 #ifndef _HOLBERTON_H_
 #define _HOLBERTON_H_
 /**
+ * argstostr - args stuff
+ * @ac: arguments
+ * @av: array of arguments?
+ * Return: char array
+ */
+char *argstostr(int ac, char **av);
+/**
  * free_grid - frees a grid
  * @grid: grid to free
  * @height: height of grid
