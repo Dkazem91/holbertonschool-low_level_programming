@@ -1,6 +1,14 @@
 #ifndef _HOLBERTON_H_
 #define _HOLBERTON_H_
 /**
+ * string_nconcat - concats strings
+ * @s1: string one
+ * @s2: string two
+ * @n: n amount of bytes of s2
+ * Return: a char pointer value
+ */
+char *string_nconcat(char *s1, char *s2, unsigned int n);
+/**
  * malloc_checked - checks malloc?
  * @b: int to check? something
  * Return: something void or pointer
