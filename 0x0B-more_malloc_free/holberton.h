@@ -1,5 +1,6 @@
 #ifndef _HOLBERTON_H_
 #define _HOLBERTON_H_
+int *array_range(int min, int max);
 /**
  * _calloc - calloc function
  * @nmemb: number of elements
