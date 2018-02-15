@@ -57,7 +57,6 @@ char **strtow(char *str)
 			word++;
 		len++;
 	}
-
 	s = (char **)malloc(sizeof(char *) * word + 1);
 	if (s == NULL)
 		return (NULL);
@@ -76,9 +75,7 @@ char **strtow(char *str)
 		if (s[i] == NULL)
 		{
 			for (k = i - 1; k >= 0; k--)
-			{
 				free(s[k]);
-			}
 			free(s);
 		}
 	}
