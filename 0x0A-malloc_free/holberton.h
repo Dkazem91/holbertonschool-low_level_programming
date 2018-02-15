@@ -1,6 +1,12 @@
 #ifndef _HOLBERTON_H_
 #define _HOLBERTON_H_
 /**
+ * strtow - string to words
+ * @str: string to go to words
+ * Return: char value
+ */
+char **strtow(char *str);
+/**
  * argstostr - args stuff
  * @ac: arguments
  * @av: array of arguments?
