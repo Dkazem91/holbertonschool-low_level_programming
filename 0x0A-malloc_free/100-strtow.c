@@ -45,6 +45,8 @@ char **strtow(char *str)
 	int len, i, j, size, k, word;
 	char **s;
 
+	if (str == NULL || str == "")
+		return (NULL);
 	len = 0;
 	word = 0;
 	while (str[len] != '\0')
