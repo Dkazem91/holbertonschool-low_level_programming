@@ -9,30 +9,31 @@
  * @s: array you are assigning
  * Return: char value
  */
-char** helper(int word,int len,char *str,char **s)
+char **helper(int word, int len, char *str, char **s)
 {
-        int i, k, j;
-        j = 0;
-        for (i = 0; i < word; i++)
-        {
-                k = 0;
-                for (; j < len; j++)
-                {
-                        if (str[0] != ' ' || str[j] != ' ')
-                        {
-                                s[i][k] = str[j];
-                                k++;
-                        }
-                        if (j != 0 && str[j] == ' ' && str[j - 1] != ' ')
-                        {
-                                j++;
-                                break;
-                        }
-                }
-                s[i][k + 1] = '\0';
-        }
-        s[word + 1] = NULL;
-        return (s);
+	int i, k, j;
+
+	j = 0;
+	for (i = 0; i < word; i++)
+	{
+		k = 0;
+		for (; j < len; j++)
+		{
+			if (str[0] != ' ' || str[j] != ' ')
+			{
+				s[i][k] = str[j];
+				k++;
+			}
+			if (j != 0 && str[j] == ' ' && str[j - 1] != ' ')
+			{
+				j++;
+				break;
+			}
+		}
+		s[i][k + 1] = '\0';
+	}
+	s[word + 1] = NULL;
+	return (s);
 }
 /**
  * strtow - string to words
@@ -41,7 +42,7 @@ char** helper(int word,int len,char *str,char **s)
  */
 char **strtow(char *str)
 {
-	int len, i, j, size, word;
+	int len, i, j, size, k, word;
 	char **s;
 
 	len = 0;
@@ -50,7 +51,7 @@ char **strtow(char *str)
 	{
 		if (str[0] != ' ')
 		word++;
-		if (str[len] != ' ' && str [len - 1] == ' ' && len != 0)
+		if (str[len] != ' ' && str[len - 1] == ' ' && len != 0)
 			word++;
 		len++;
 	}
@@ -70,6 +71,14 @@ char **strtow(char *str)
 				break;
 		}
 		s[i] = (char *)malloc(sizeof(char) * size + 1);
+		if (s[i] == NULL)
+		{
+			for (k = i - 1; k >= 0; k--)
+			{
+				free(s[k]);
+			}
+			free(s);
+		}
 	}
 	s = helper(word, len, str, s);
 	return (s);
