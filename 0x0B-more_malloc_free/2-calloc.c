@@ -13,8 +13,8 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	unsigned int i;
 
 	t = malloc(nmemb * size);
-	for (i = 0; i < (nmemb * size); i++)
-		t[i] = '\0';
+	for (i = 0; i < nmemb * size; i++)
+		t[i] = 0;
 
 	return (t);
 }
