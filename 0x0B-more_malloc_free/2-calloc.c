@@ -11,13 +11,14 @@
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	unsigned int *t[nmemb];
-	unsigned int i;
+	unsigned int i, k;
 
 	i = 0;
 	while (i < nmemb)
 	{
 		t[i] = malloc(size);
-		memset(t[i], '\0', size);
+		for (k = 0; k < size; k++)
+			t[i][k] = '\0';
 		i++;
 	}
 
