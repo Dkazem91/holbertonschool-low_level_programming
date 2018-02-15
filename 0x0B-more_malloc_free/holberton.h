@@ -1,6 +1,13 @@
 #ifndef _HOLBERTON_H_
 #define _HOLBERTON_H_
 /**
+ * _calloc - calloc function
+ * @nmemb: number of elements
+ * @size: number of bytes
+ * Return: pointer value
+ */
+void *_calloc(unsigned int nmemb, unsigned int size);
+/**
  * string_nconcat - concats strings
  * @s1: string one
  * @s2: string two
