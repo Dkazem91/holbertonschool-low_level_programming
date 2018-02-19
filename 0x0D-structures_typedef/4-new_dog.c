@@ -10,13 +10,30 @@
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
+	int len1;
+	int len2;
+	char *a;
+	char *b;
 	struct dog *ndog;
-	ndog = malloc(sizeof(struct dog));
-	if(ndog == NULL)
+
+	while (*name++)
+		len1++;
+	while (*owner++)
+		len2++;
+	a = malloc(sizeof(char) * (len1 + 1));
+	if (a == NULL)
 		return (NULL);
-	ndog->name = name;
+	b = malloc(sizeof(char) * (len2 + 1));
+	if (b == NULL)
+		return (NULL);
+	ndog = malloc(sizeof(struct dog));
+	if (ndog == NULL)
+		return (NULL);
+	ndog->name = a;
 	ndog->age = age;
-	ndog->owner = owner;
-	return ndog;
+	ndog->owner = b;
+
+
+	return (ndog);
 
 }
