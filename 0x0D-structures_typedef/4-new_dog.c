@@ -12,7 +12,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 {
 	int i, len1, len2;
 	struct dog *ndog;
-	char *a,*b;
+	char *a, *b;
 
 	len1 = 0;
 	for (i = 0; name[i] != '\0'; i++)
