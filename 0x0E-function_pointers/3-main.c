@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 			exit(100);
 		}
 		printf("%d\n", func(a, b));
-		return (1);
+		return (0);
 	}
 	printf("Error\n");
 	exit(98);
