@@ -50,6 +50,11 @@ int print_s(va_list a)
 	printf("%s", s);
 	return (0);
 }
+/**
+ * print_all - prints all
+ * @format: format string that says arg types
+ *
+ */
 void print_all(const char * const format, ...)
 {
 	int i, j;
@@ -82,5 +87,5 @@ void print_all(const char * const format, ...)
 		i++;
 	}
 	printf("\n");
-
+	va_end(anyArgs);
 }
