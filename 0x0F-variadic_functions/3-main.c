@@ -7,6 +7,7 @@
  */
 int main(void)
 {
-	print_all("ceis", 'H', 0, NULL);
+	print_all("ceis", 'H', 0, "lberton");
+	print_all(NULL);
 	return (0);
 }
