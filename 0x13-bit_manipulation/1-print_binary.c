@@ -1,10 +1,7 @@
 #include "holberton.h"
 /**
- *
- *
- *
- *
- *
+ * print_binary - print binary
+ * @n: integer to mess with
  */
 void print_binary(unsigned long int n)
 {
