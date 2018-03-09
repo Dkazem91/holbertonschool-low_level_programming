@@ -1,9 +1,9 @@
 #include "holberton.h"
 /**
- *
- *
- *
- *
+ * flip_bits - flips bits
+ * @n: first number
+ * @m: second number
+ * Return: unsigned int value of number
  */
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
