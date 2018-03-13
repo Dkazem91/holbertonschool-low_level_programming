@@ -1,20 +1,5 @@
 #include "holberton.h"
 /**
- * closeCheck - checks for closed
- * @value: value to check
- * Return: a value
- */
-int closeCheck(int value)
-{
-	if (value == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %s\n", value);
-		close(fdToo);
-		exit(100);
-	}
-	return (0);
-}
-/**
  * main - program to copy
  * @ac: argument count
  * @av: array of arguments
@@ -39,7 +24,6 @@ int main(int ac, char **av)
 	fdToo = open(av[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (fdToo == -1)
 	{
-		close(fdFrum);
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
 		exit(99);
 	}
@@ -50,11 +34,17 @@ int main(int ac, char **av)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
 			exit(99);
-			close(fdFrum);
-			close(fdToo);
 		}
 	}
-	closeCheck(close(fdFrum));
-	closeCheck(close(fdToo));
+	if (close(fdFrum) == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d", fdFrum);
+		exit(100);
+	}
+	if (close(fdToo) == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d", fdFrum);
+		exit(100);
+	}
 	return (0);
 }
