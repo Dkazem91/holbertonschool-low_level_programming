@@ -8,9 +8,8 @@
 int main(int ac, char **av)
 {
 	int fdFrum, fdToo, wrote, readed;
-	char *buff;
+	char buff[1024];
 
-	buff = malloc(1024);
 	if (ac != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
@@ -32,9 +31,11 @@ int main(int ac, char **av)
 	{
 		wrote = write(fdToo, buff, readed);
 		if (wrote == -1)
-			return (-1);
+		{
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
+			exit(99);
+		}
 	}
-
 	if (close(fdFrum) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %s\n", av[1]);
@@ -45,6 +46,5 @@ int main(int ac, char **av)
 		dprintf(STDERR_FILENO, "Error: Can't close fd %s\n", av[2]);
 		exit(100);
 	}
-	free(buff);
 	return (0);
 }
