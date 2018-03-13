@@ -10,6 +10,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	int fd;
 	long int printed, wrote;
 	char buff[letters];
+
 	if (filename == NULL)
 		return (0);
 	fd = open(filename,O_RDWR);
@@ -21,6 +22,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	wrote = write(1,buff,printed);
 	if (wrote == -1)
 		return (0);
-	close(fd);
+	if(close(fd) == -1)
+		return (0);
 	return (printed);
 }

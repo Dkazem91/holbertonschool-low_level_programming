@@ -31,14 +31,12 @@ int main (int ac, char **av)
 			return(-1);
 	}
 
-	close(fdFrum);
-	if (close == -1)
+	if(close(fdFrum))
 	{
 		dprintf(2,"Error: Can't close fd %s\n",av[1]);
 		exit(100);
 	}
-	close(fdToo);
-	if (close == -1)
+	if(close(fdToo))
 	{
 		dprintf(2,"Error: Can't close fd %s\n",av[2]);
 		exit(100);
