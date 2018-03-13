@@ -9,8 +9,9 @@ int main(int ac, char **av)
 {
 	int fdFrum, fdToo;
 	long int wrote, readed;
-	char buff[1024];
+	char *buff;
 
+	buff = malloc(1024);
 	if (ac != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
@@ -40,5 +41,6 @@ int main(int ac, char **av)
 		dprintf(STDERR_FILENO, "Error: Can't close fd %s\n", av[2]);
 		exit(100);
 	}
+	free(buff);
 	return (1);
 }
