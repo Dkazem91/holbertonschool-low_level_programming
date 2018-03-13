@@ -1,10 +1,9 @@
 #include "holberton.h"
 /**
- *
- *
- *
- *
- *
+ * append_text_to_file - appends to file
+ * @filename: name of file
+ * @text_content: content of text
+ * Return: int value
  */
 int append_text_to_file(const char *filename, char *text_content)
 {
@@ -13,14 +12,14 @@ int append_text_to_file(const char *filename, char *text_content)
 
 	while (text_content[len])
 		len++;
-	if(filename == NULL)
+	if (filename == NULL)
 		return (-1);
-	fd = open(filename,O_RDWR|O_APPEND);
+	fd = open(filename, O_RDWR | O_APPEND);
 	if (fd == -1)
 		return (-1);
 	if (text_content != NULL)
 	{
-		wrote = write(fd, text_content,len);
+		wrote = write(fd, text_content, len);
 		if (wrote == -1)
 			return (-1);
 	}

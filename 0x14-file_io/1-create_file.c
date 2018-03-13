@@ -1,10 +1,9 @@
 #include "holberton.h"
 /**
- *
- *
- *
- *
- *
+ * create_file - creates a file
+ * @filename: filename to grab
+ * @text_content: content to add
+ * Return: int value
  */
 int create_file(const char *filename, char *text_content)
 {
@@ -13,16 +12,17 @@ int create_file(const char *filename, char *text_content)
 
 	while (text_content[len])
 		len++;
-	if(filename == NULL)
+	if (filename == NULL)
 		return (-1);
-	fd = open(filename, O_CREAT |O_RDWR|O_TRUNC,0600);
+	fd = open(filename, O_CREAT | O_RDWR | O_TRUNC, 0600);
 	if (fd == -1)
 		return (-1);
 	if (text_content != NULL)
 	{
-		wrote = write(fd, text_content,len);
+		wrote = write(fd, text_content, len);
 		if (wrote == -1)
 			return (-1);
 	}
+	close(fd);
 	return (1);
 }
