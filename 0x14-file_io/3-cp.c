@@ -7,29 +7,25 @@
  */
 int main(int ac, char **av)
 {
-	int fdFrum, fdToo;
-	long int wrote, readed;
+	int fdFrum, fdToo, wrote, readed;
 	char *buff;
 
 	buff = malloc(1024);
 	if (ac != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-		free(buff);
 		exit(97);
 	}
 	fdFrum = open(av[1], O_RDONLY);
 	if (fdFrum == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
-		free(buff);
 		exit(98);
 	}
 	fdToo = open(av[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (fdToo == -1)
 	{
-		dprintf(STDERR_FILENO,"Error: Can't write to %s\n", av[2]);
-		free(buff);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
 		exit(99);
 	}
 	while ((readed = read(fdFrum, buff, 1024)) > 0)
@@ -42,13 +38,11 @@ int main(int ac, char **av)
 	if (close(fdFrum) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %s\n", av[1]);
-		free(buff);
 		exit(100);
 	}
 	if (close(fdToo) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %s\n", av[2]);
-		free(buff);
 		exit(100);
 	}
 	free(buff);
