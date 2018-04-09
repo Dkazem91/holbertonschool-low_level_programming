@@ -1,5 +1,6 @@
 #ifndef _HOLBERTON_H_
 #define _HOLBERTON_H_
+void _print_rev_recursion(char *s);
 /**
  * _atoi - convert char to int
  * @s: string

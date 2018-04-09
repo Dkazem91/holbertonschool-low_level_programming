@@ -1,0 +1,10 @@
+#include "holberton.h"
+#include <stdio.h>
+char *infinite_add(char
+{
+	if (*s)
+	{
+		_print_rev_recursion(s + 1);
+		putchar(*s);
+	}
+}
