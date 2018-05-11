@@ -6,17 +6,17 @@
 void hash_table_print(const hash_table_t *ht)
 {
 	unsigned int i = 0;
-	unsigned int lastKey = ht->size;
+	unsigned int lastKey = ht->size - 1;
 	hash_node_t *printer;
 
-	if(ht == NULL)
+	if (ht == NULL)
 		return;
 
-	while (!ht->array[lastKey] && lastKey > 0)
+	while (!ht->array[lastKey] && lastKey != 0)
 		lastKey--;
 
 	printf("{");
-	for (i = 0; i <= lastKey; i++)
+	for (i = 0; i < ht->size; i++)
 	{
 		printer = ht->array[i];
 		if (!printer)
