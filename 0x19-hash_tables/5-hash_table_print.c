@@ -5,8 +5,6 @@
  */
 void hash_table_print(const hash_table_t *ht)
 {
-	if (!ht || ht->size == 0)
-		return;
 	unsigned int i = 0;
 	unsigned int lastKey = ht->size;
 	hash_node_t *printer;
