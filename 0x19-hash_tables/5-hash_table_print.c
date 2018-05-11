@@ -9,8 +9,9 @@ void hash_table_print(const hash_table_t *ht)
 	unsigned int lastKey = ht->size;
 	hash_node_t *printer;
 
-	if(!ht)
+	if(ht == NULL)
 		return;
+
 	while (!ht->array[--lastKey] && lastKey > 0);
 
 	printf("{");
@@ -22,7 +23,7 @@ void hash_table_print(const hash_table_t *ht)
 		while (printer)
 		{
 			printf("'%s': '%s'", printer->key, printer->value);
-			if (printer->next || i < lastKey)
+			if (i < lastKey)
 				printf(", ");
 			printer = printer->next;
 		}
