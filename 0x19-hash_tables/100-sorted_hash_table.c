@@ -31,6 +31,7 @@ shash_table_t *shash_table_create(unsigned long int size)
 }
 /**
  * shash_table_set - sets ht table
+ * @ht: hash table to set
  * @key: key to set
  * @value: value to set
  * Return: pass fail
@@ -38,7 +39,7 @@ shash_table_t *shash_table_create(unsigned long int size)
 int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int position;
-	shash_node_t *checker, *new, *sorter;
+	shash_node_t *checker, *new;
 
 	if (!ht || strlen(key) == 0)
 		return (0);
@@ -76,6 +77,18 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	ht->array[position] = new;
 	new->snext = NULL;
 	new->sprev = NULL;
+	return (set_sorted_list(ht, new));
+}
+/**
+ * set_sorted_list - sets doubly linked list
+ * @ht: hash table to go through
+ * @new: node to sort
+ * Return: pass or fail
+ */
+int set_sorted_list(shash_table_t *ht, shash_node_t *new)
+{
+	shash_node_t *sorter;
+
 	if (!ht->shead)
 	{
 		ht->shead = new;
