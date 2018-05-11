@@ -186,7 +186,21 @@ void shash_table_print_rev(const shash_table_t *ht)
 }
 void shash_table_delete(shash_table_t *ht)
 {
-	if (!ht)
-		return;
-	exit(1);
+	unsigned int i;
+	shash_node_t *freer, *tmp;
+
+	for (i = 0; i < ht->size; i++)
+	{
+		freer = ht->array[i];
+		while (freer)
+		{
+			tmp = freer->next;
+			free(freer->key);
+			free(freer->value);
+			free(freer);
+			freer = tmp;
+		}
+	}
+	free(ht->array);
+	free(ht);
 }
