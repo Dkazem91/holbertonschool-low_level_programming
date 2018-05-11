@@ -14,7 +14,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (!ht || ht->size == 0 || strlen(key) == 0)
 		return (0);
 	position = key_index((const unsigned char *)key, ht->size);
-
 	checker = ht->array[position];
 	while (checker)
 	{
@@ -23,7 +22,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			free(checker->value);
 			checker->value = strdup((char *)value);
 			if(!checker->value)
-
 				return(0);
 			return (1);
 		}

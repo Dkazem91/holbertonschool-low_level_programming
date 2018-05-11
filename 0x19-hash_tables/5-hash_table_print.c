@@ -8,14 +8,13 @@ void hash_table_print(const hash_table_t *ht)
 	if (!ht || ht->size == 0)
 		return;
 	unsigned int i = 0;
-	unsigned int lastKey = ht->size - 1;
+	unsigned int lastKey = ht->size;
 	hash_node_t *printer;
 
-	while (!ht->array[lastKey] && lastKey > 0)
-		lastKey--;
+	while (!ht->array[--lastKey] && lastKey > 0);
 
 	printf("{");
-	for (i = 0; i < ht->size; i++)
+	for (i = 0; i <= lastKey; i++)
 	{
 		printer = ht->array[i];
 		if (!printer)
@@ -23,7 +22,7 @@ void hash_table_print(const hash_table_t *ht)
 		while (printer)
 		{
 			printf("'%s': '%s'", printer->key, printer->value);
-			if (i != lastKey)
+			if (printer->next || i < lastKey)
 				printf(", ");
 			printer = printer->next;
 		}
