@@ -187,6 +187,11 @@ void shash_table_print_rev(const shash_table_t *ht)
 	}
 	printf("}\n");
 }
+/**
+ * shash_table_delete - deletes a table
+ * @ht: hash table to delete
+ *
+ */
 void shash_table_delete(shash_table_t *ht)
 {
 	unsigned int i;
