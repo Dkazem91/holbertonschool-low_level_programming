@@ -9,7 +9,6 @@
  */
 int partition(int *array, int start, int end, int size)
 {
-	(void)size;
 	int pivot = array[end];
 	int i = start, j, temp;
 
