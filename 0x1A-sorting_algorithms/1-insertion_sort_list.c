@@ -1,7 +1,7 @@
 #include "sort.h"
 
 /**
- * insertion_sort - inserts right unsorted side into left sorted side
+ * insertion_sort_list - inserts right unsorted side into left sorted side
  * @list: doubly linked list to sort
  *
  */
@@ -11,10 +11,8 @@ void insertion_sort_list(listint_t **list)
 
 	if (!(*list) || (*list)->next == NULL)
 		return;
-
 	c = (*list)->next;
 	nextnode = c->next;
-
 	while (c)
 	{
 		if (c->n < c->prev->n)
@@ -31,14 +29,13 @@ void insertion_sort_list(listint_t **list)
 					c->next = p;
 					c->prev = NULL;
 					*list = c;
-
 				}
 				else
 				{
 					c->prev->next = c->next;
 					if (c->next)
 						c->next->prev = c->prev;
-				       	p->prev->next = c;
+					p->prev->next = c;
 					c->prev = p->prev;
 					p->prev = c;
 					c->next = p;
@@ -48,7 +45,6 @@ void insertion_sort_list(listint_t **list)
 			}
 		}
 		c = nextnode;
-		if (c)
-			nextnode = c->next;
+		c ? (nextnode = c->next) : (nextnode = NULL);
 	}
 }
