@@ -26,11 +26,13 @@ int partition(int *array, int start, int end, int size)
 			i++;
 		}
 	}
-	temp = array[i];
-	array[i] = array[end];
-	array[end] = temp;
 	if (i != end)
+	{
+		temp = array[i];
+		array[i] = array[end];
+		array[end] = temp;
 		print_array(array, size);
+	}
 	return (i);
 }
 /**
@@ -58,5 +60,7 @@ void quickSort(int *array, int start, int end, int size)
  */
 void quick_sort(int *array, size_t size)
 {
+	if (array == NULL || size < 2)
+		return;
 	quickSort(array, 0, size - 1, size);
 }
