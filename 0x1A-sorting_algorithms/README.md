@@ -3,12 +3,13 @@
 > [bubble sort](https://en.wikipedia.org/wiki/Bubble_sort),
 > [insertion sort](https://en.wikipedia.org/wiki/Insertion_sort),
 > [selection sort](https://en.wikipedia.org/wiki/Selection_sort),
-> [quick sort](https://en.wikipedia.org/wiki/Quicksort), etc.
+> [quick sort (utilizing Lomuto's partition)](https://en.wikipedia.org/wiki/Quicksort), etc.
 
 ### Description of what each file shows:
 * sort.h ----------- header file with all function prototypes
 * print_array.c ---- holds print_array function
-* print_list.c ------- holds print_list function
+* print_list.c ----- holds print_list function
+* #-O -------------- best case, average case, and worst case time complexities
 
 ### Environment
 * Language: C89
