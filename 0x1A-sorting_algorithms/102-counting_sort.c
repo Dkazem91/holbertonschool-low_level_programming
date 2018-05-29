@@ -7,7 +7,7 @@
 void counting_sort(int *array, size_t size)
 {
 	size_t i;
-	int j, k, num;
+	int j, k, num, dup;
 	int *counts;
 
 	k = array[0]; /* find max num to malloc size of new array */
@@ -30,11 +30,18 @@ void counting_sort(int *array, size_t size)
 	{
 		counts[j + 1] += counts[j];
 	}
-	print_array(counts, k + 1);
 	for (i = 0, j = 0; j < k; j++) /* replace array with sorted */
 	{
-		if (counts[j + 1] > counts[j])
-			array[i++] = (j + 1);
+		if ((j == 0) && counts[j] != 0)
+		{
+			for ((dup = counts[j]); dup > 0; dup--)
+				array[i++] = j;
+		}
+ 		if (counts[j + 1] > counts[j])
+ 		{
+ 			for ((dup = counts[j + 1] - counts[j]); dup > 0; dup--)
+ 				array[i++] = (j + 1);
+ 		}
 	}
 
 	free(counts);
