@@ -60,6 +60,7 @@ void cocktail_sort_list(listint_t **list)
 		}
 		c = c->prev;
 		index--;
+		swapped = 0;
 		while (c->prev && index > start)
 		{
 			index--;
@@ -73,7 +74,8 @@ void cocktail_sort_list(listint_t **list)
 			}
 			else
 				c = c->prev;
-			print_list((*list));
+			if(swapped)
+				print_list((*list));
 		}
 		end--;
 		start++;
