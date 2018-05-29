@@ -10,6 +10,8 @@ void counting_sort(int *array, size_t size)
 	int j, k, num, dup;
 	int *counts;
 
+	if (array == NULL || size < 2)
+		return;
 	k = array[0]; /* find max num to malloc size of new array */
 	for (i = 1; i < size; i++)
 	{
