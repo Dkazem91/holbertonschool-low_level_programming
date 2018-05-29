@@ -1,23 +1,28 @@
 #include "sort.h"
 
-void swap(listint_t *node_a, listint_t *node_b)
+void swap(listint_t *p, listint_t *c)
 {
-	if (!(node_a->prev))
+	if (!(p->prev))
 	{
-		node_a->prev = node_b;
-		node_a->next = node_b->next;
-		node_b->prev = NULL;
-		node_b->next = node_a;
+		p->prev = c;
+		c->prev->next = c->next;
+		if (c->next)
+			c->next->prev = c->prev;
+		c->next = p;
+		c->prev = NULL;
 	}
 	else
 	{
-		node_a->next = node_b->next;
-		node_a->prev->next = node_b;
-		node_b->prev = node_a->prev;
-		node_a->prev = node_b;
-		node_b->next = node_a;
+		c->prev->next = c->next;
+		if (c->next)
+			c->next->prev = c->prev;
+		p->prev->next = c;
+		c->prev = p->prev;
+		p->prev = c;
+		c->next = p;
 	}
 }
+
 /**
  * insertion_sort_list - inserts right unsorted side into left sorted side
  * @list: doubly linked list to sort
@@ -50,10 +55,12 @@ void cocktail_sort_list(listint_t **list)
 			}
 			else
 				c = c->next;
-			print_list((*list));
+			if(swapped)
+				print_list((*list));
 		}
 		c = c->prev;
-		while (c && index > start)
+		index--;
+		while (c->prev && index > start)
 		{
 			index--;
 			nextnode = c->prev;
