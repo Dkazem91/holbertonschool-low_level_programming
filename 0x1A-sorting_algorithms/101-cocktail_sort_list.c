@@ -1,5 +1,9 @@
 #include "sort.h"
-
+/**
+ * swap - swaps both
+ * @p: first node to swap
+ * @c: second node to swap
+ */
 void swap(listint_t *p, listint_t *c)
 {
 	if (!(p->prev))
@@ -24,9 +28,8 @@ void swap(listint_t *p, listint_t *c)
 }
 
 /**
- * insertion_sort_list - inserts right unsorted side into left sorted side
+ * cocktail_sort_list - inserts right unsorted side into left sorted side
  * @list: doubly linked list to sort
- *
  */
 void cocktail_sort_list(listint_t **list)
 {
@@ -36,10 +39,10 @@ void cocktail_sort_list(listint_t **list)
 	if (list == NULL || !(*list) || (*list)->next == NULL)
 		return;
 	c = (*list);
-	while((c = c->next))
+	while ((c = c->next))
 		end++;
 	c = (*list);
-	do{
+	do {
 		swapped = 0;
 		index  = 0;
 		while (c->next && index < end)
@@ -49,13 +52,13 @@ void cocktail_sort_list(listint_t **list)
 			if (nextnode && c->n > nextnode->n)
 			{
 				swap(c, nextnode);
-				if(!(c->prev))
+				if (!(c->prev))
 					*list = c;
 				swapped = 1;
 			}
 			else
 				c = c->next;
-			if(swapped)
+			if (swapped)
 				print_list((*list));
 		}
 		c = c->prev;
@@ -68,16 +71,16 @@ void cocktail_sort_list(listint_t **list)
 			if (nextnode && c->n < nextnode->n)
 			{
 				swap(nextnode, c);
-				if(!(c->prev))
+				if (!(c->prev))
 					*list = c;
 				swapped = 1;
 			}
 			else
 				c = c->prev;
-			if(swapped)
+			if (swapped)
 				print_list((*list));
 		}
 		end--;
 		start++;
-	}while(swapped);
+	} while (swapped);
 }
