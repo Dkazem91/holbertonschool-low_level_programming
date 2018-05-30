@@ -3,6 +3,7 @@
  * swap - swaps both
  * @p: first node to swap
  * @c: second node to swap
+ * @list: list to set null or not
  */
 void swap(listint_t *p, listint_t *c, listint_t **list)
 {
@@ -45,7 +46,6 @@ void cocktail_sort_list(listint_t **list)
 		swapped = 0;
 		while (c->next)
 		{
-			swapped = 0;
 			nextnode = c->next;
 			if (nextnode && c->n > nextnode->n)
 			{
@@ -59,7 +59,6 @@ void cocktail_sort_list(listint_t **list)
 		c = c->prev;
 		while (c->prev)
 		{
-			swapped = 0;
 			nextnode = c->prev;
 			if (nextnode && c->n < nextnode->n)
 			{
