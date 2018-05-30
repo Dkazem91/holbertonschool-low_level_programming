@@ -4,16 +4,17 @@
  * @p: first node to swap
  * @c: second node to swap
  */
-void swap(listint_t *p, listint_t *c)
+void swap(listint_t *p, listint_t *c, listint_t **list)
 {
 	if (!(p->prev))
 	{
-		p->prev = c;
-		c->prev->next = c->next;
+		p->next = c->next;
 		if (c->next)
-			c->next->prev = c->prev;
+			c->next->prev = p;
 		c->next = p;
 		c->prev = NULL;
+		p->prev = c;
+		*list = c;
 	}
 	else
 	{
@@ -48,9 +49,7 @@ void cocktail_sort_list(listint_t **list)
 			nextnode = c->next;
 			if (nextnode && c->n > nextnode->n)
 			{
-				swap(c, nextnode);
-				if (!(c->prev))
-					*list = c;
+				swap(c, nextnode, list);
 				swapped = 1;
 				print_list((*list));
 			}
@@ -64,9 +63,7 @@ void cocktail_sort_list(listint_t **list)
 			nextnode = c->prev;
 			if (nextnode && c->n < nextnode->n)
 			{
-				swap(nextnode, c);
-				if (!(c->prev))
-					*list = c;
+				swap(nextnode, c, list);
 				swapped = 1;
 				print_list((*list));
 			}
