@@ -8,7 +8,7 @@
  */
 void prints(int *arr, char *side, size_t start, size_t end)
 {
-        size_t i;
+	size_t i;
 
 	printf("[%s]: ", side);
 	for (i = start; i < end; i++)
@@ -30,11 +30,11 @@ void prints(int *arr, char *side, size_t start, size_t end)
 void rec_merge(int *array, int *sortArr, size_t l, size_t r)
 {
 	size_t i, l_half, r_half;
+	size_t mid = (l + r) / 2;
 
 	if (r - l <= 1)
 		return;
 
-	size_t mid = (l + r) / 2;
 	rec_merge(array, sortArr, l, mid);
 	rec_merge(array, sortArr, mid, r);
 	printf("Merging...\n");
@@ -43,7 +43,8 @@ void rec_merge(int *array, int *sortArr, size_t l, size_t r)
 	l_half = l; r_half = mid;
 	for (i = l; i < r; i++)
 	{
-		if ((l_half < mid) && ((array[l_half] < array[r_half]) || r_half == r))
+		if ((l_half < mid) &&
+		    ((r_half == r) || (array[l_half] < array[r_half])))
 		{
 			sortArr[i] = array[l_half]; l_half++;
 		}
@@ -65,10 +66,11 @@ void merge_sort(int *array, size_t size)
 {
 	int *sortArr;
 
-	if(!(array) || size < 2)
+	if (!(array) || size < 2)
 		return;
 	sortArr = malloc(sizeof(int) * size);
-	if(!(sortArr))
+	if (!(sortArr))
 		return;
 	rec_merge(array, sortArr, 0, size);
+	free(sortArr);
 }
