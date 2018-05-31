@@ -1,46 +1,60 @@
 #include "sort.h"
-void mergeSort(int *array, int * sortArr, size_t beg, size_t mid, size_t end)
+/**
+ * prints - prints left, right, and merged halves
+ * @arr: original or tmp array
+ * @side: left, right, or merged half
+ * @start: starting index
+ * @end: ending index
+ */
+void prints(int *arr, char *side, size_t start, size_t end)
 {
-	size_t i = beg, left, right;
+        size_t i;
 
-	left = beg;
-	right = mid + 1;
-	printf("merging...\n");
-	printf("[left]:");
-	while(left <= mid)
-		printf("%d ", array[left++]);
-	printf("\n[right]:");
-	while(right <= end)
-	      printf("%d ", array[right++]);
-	printf("\n");
-	left = beg;
-	right = mid + 1;
-	for(i = beg; left <= mid && right <= end; i++)
-		if(array[left] <= array[right])
-			sortArr[i] = array[left++];
-		else
-			sortArr[i] = array[right++];
-	while(left <= mid)
-		sortArr[i++] = array[left++];
-	while(right <= end)
-		sortArr[i++] = array[right++];
-	for(i = beg; i <= end; i++)
-		array[i] = sortArr[i];
-	printf("[Done]:");
-	for (i = beg; i <= end; i++)
-		printf("%d ", array[i]);
-	printf("\n");
-}
-void merge(int *array, int *sortArr, size_t beg, size_t end)
-{
-	size_t mid = (beg + end) / 2;
-
-	if(beg < end)
+	printf("[%s]: ", side);
+	for (i = start; i < end; i++)
 	{
-		merge(array, sortArr, beg, mid);
-		merge(array, sortArr, mid + 1, end);
-		mergeSort(array, sortArr, beg, mid, end);
+		if (i != (end - 1))
+			printf("%d, ", arr[i]);
+		else
+			printf("%d\n", arr[i]);
 	}
+
+}
+/**
+ * rec_merge - recursively splits and merges halves
+ * @array: original array
+ * @sortArr: tmp array to hold sorted elements
+ * @l: starting index
+ * @r: ending index
+ */
+void rec_merge(int *array, int *sortArr, size_t l, size_t r)
+{
+	size_t i, l_half, r_half;
+
+	if (r - l <= 1)
+		return;
+
+	size_t mid = (l + r) / 2;
+	rec_merge(array, sortArr, l, mid);
+	rec_merge(array, sortArr, mid, r);
+	printf("Merging...\n");
+	prints(array, "left", l, mid);
+	prints(array, "right", mid, r);
+	l_half = l; r_half = mid;
+	for (i = l; i < r; i++)
+	{
+		if ((l_half < mid) && ((array[l_half] < array[r_half]) || r_half == r))
+		{
+			sortArr[i] = array[l_half]; l_half++;
+		}
+		else
+		{
+			sortArr[i] = array[r_half]; r_half++;
+		}
+	}
+	prints(sortArr, "Done", l, r);
+	for (i = l; i < r; i++)
+		array[i] = sortArr[i];
 }
 /**
  * merge_sort - sorts mergly
@@ -53,8 +67,8 @@ void merge_sort(int *array, size_t size)
 
 	if(!(array) || size < 2)
 		return;
-	sortArr = malloc(sizeof(size_t) * size);
+	sortArr = malloc(sizeof(int) * size);
 	if(!(sortArr))
 		return;
-	merge(array, sortArr, 0, size - 1);
+	rec_merge(array, sortArr, 0, size);
 }
