@@ -46,11 +46,13 @@ void rec_merge(int *array, int *sortArr, size_t l, size_t r)
 		if ((l_half < mid) &&
 		    ((r_half == r) || (array[l_half] < array[r_half])))
 		{
-			sortArr[i] = array[l_half]; l_half++;
+			sortArr[i] = array[l_half];
+			l_half++;
 		}
 		else
 		{
-			sortArr[i] = array[r_half]; r_half++;
+			sortArr[i] = array[r_half];
+			r_half++;
 		}
 	}
 	prints(sortArr, "Done", l, r);
