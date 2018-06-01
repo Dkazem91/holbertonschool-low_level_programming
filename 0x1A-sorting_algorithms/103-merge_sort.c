@@ -40,7 +40,8 @@ void rec_merge(int *array, int *sortArr, size_t l, size_t r)
 	printf("Merging...\n");
 	prints(array, "left", l, mid);
 	prints(array, "right", mid, r);
-	l_half = l; r_half = mid;
+	l_half = l;
+	r_half = mid;
 	for (i = l; i < r; i++)
 	{
 		if ((l_half < mid) &&
