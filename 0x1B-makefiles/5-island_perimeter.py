@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """gets perimeter of island"""
+
+
 def checkdirection(array, idx):
     try:
         if not array[idx]:
@@ -7,6 +9,8 @@ def checkdirection(array, idx):
         return 0
     except:
         return 0
+
+
 def island_perimeter(grid):
     """actual function"""
     count = 0
