@@ -3,12 +3,13 @@
 
 
 def checkdirection(array, idx):
+    """checks the direction"""
     try:
         if not array[idx]:
             return 1
         return 0
     except:
-        return 0
+        return 1
 
 
 def island_perimeter(grid):
@@ -23,6 +24,9 @@ def island_perimeter(grid):
                 if spot:
                     count = count + checkdirection(grid[idx1 - 1], idx2)
                     count = count + checkdirection(row, idx2 - 1)
-                    count = count + checkdirection(grid[idx1 + 1], idx2)
                     count = count + checkdirection(row, idx2 + 1)
+                    if idx1 < len(grid) - 1:
+                        count = count + checkdirection(grid[idx1 + 1], idx2)
+                    else:
+                        count += 1
     return count
