@@ -1,23 +1,19 @@
 #!/usr/bin/python3
 """gets perimeter of island"""
-
-
+def checkdirection(array, idx):
+    try:
+        if not array[idx]:
+            return 1
+    except:
+        return 0
 def island_perimeter(grid):
     """actual function"""
-    noland = 0
-    sea = 1
     count = 0
-    for intList in grid:
-        if 1 not in intList:
-            noland = 1
-        else:
-            for spot in intList:
-                if spot:
-                    if not sea:
-                        count += 1
-                    sea = 1
-                else:
-                    count = count + sea + noland
-                    sea = 0
-            noland = 0
+    for idx1, row in enumerate(grid):
+        for idx2, spot in enumerate(row):
+            if spot:
+                count += checkdirection(grid[idx1 - 1], idx2)
+                count += checkdirection(row, idx2 - 1)
+                count += checkdirection(grid[idx1 + 1], idx2)
+                count += checkdirection(row, idx2 + 1)
     return count
