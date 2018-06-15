@@ -8,7 +8,7 @@ def island_perimeter(grid):
     sea = 1
     count = 0
     for intList in grid:
-        if not 1 in intList:
+        if 1 not in intList:
             noland = 1
         else:
             for spot in intList:
