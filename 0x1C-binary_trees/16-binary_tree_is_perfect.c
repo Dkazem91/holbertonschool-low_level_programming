@@ -1,56 +1,30 @@
 #include "binary_trees.h"
+#include "14-binary_tree_balance.c"
+#include "15-binary_tree_is_full.c"
 /**
- * binary_tree_is_full - finds if tree is full or not
- * @tree: root node
- * Return: balance
- */
-int binary_tree_is_full(const binary_tree_t *tree)
-{
-	if (tree == NULL)
-		return (0);
-	if (tree->left == NULL && tree->right == NULL)
-		return (1);
-	if (tree->left && tree->right)
-		return (binary_tree_is_full(tree->left) &&
-			binary_tree_is_full(tree->right));
-	return (0);
-}
-/**
- * height - returns height
+ * check_leaves - checks if all leaves are at same level
  * @tree: node to start
- * Return: height
+ * @current: current level of current leaf
+ * @level: level of past leaves
+ * Return: true or false
  */
-size_t height(const binary_tree_t *tree)
+int check_leaves(const binary_tree_t *tree, int current, int *level)
 {
-	size_t lheight, rheight;
 
 	if (tree == NULL)
 		return (0);
-
-	lheight = height(tree->left);
-	rheight = height(tree->right);
-
-	if (lheight > rheight)
-		return (lheight + 1);
-	return (rheight + 1);
+	if (tree->right == NULL && tree->left == NULL)
+	{
+		if (*level == 0)
+		{
+			*level = current;
+			return (1);
+		}
+		return (*level == current);
+	}
+	return (check_leaves(tree->left, current + 1, level) &&
+		check_leaves(tree->right, current + 1, level));
 }
-/**
- * binary_tree_balance - finds balance of tree at root
- * @tree: root node
- * Return: balance
- */
-int binary_tree_balance(const binary_tree_t *tree)
-{
-	int lside, rside, balance;
-
-	if (tree == NULL)
-		return (0);
-	lside = height(tree->left);
-	rside = height(tree->right);
-	balance = lside - rside;
-	return (balance);
-}
-
 /**
  * binary_tree_is_perfect - finds if tree is full or not
  * @tree: root node
@@ -58,11 +32,15 @@ int binary_tree_balance(const binary_tree_t *tree)
  */
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
+	int level = 0;
+
 	if (tree == NULL)
 		return (0);
 
 	if (binary_tree_is_full(tree) && (!binary_tree_balance(tree)))
-		return (1);
+	{
+		return (check_leaves(tree, 0, &level));
+	}
 
 	return (0);
 }
