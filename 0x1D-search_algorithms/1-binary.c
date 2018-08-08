@@ -3,9 +3,9 @@ void print_array(int *array, size_t start, size_t end)
 {
 	size_t i;
 	printf("Searching in array:");
-	for (i = start; i < end; i++)
+	for (i = start; i <= end; i++)
 	{
-		if ((i + 1) != end)
+		if (i != end)
 			printf(" %d,", array[i]);
 		else
 			printf(" %d\n", array[i]);
@@ -15,17 +15,14 @@ int actual_search(int *array, size_t l, size_t h, int value)
 {
 	size_t mid = (l + h) / 2;
 	print_array(array, l, h);
-	if (l == h || (l + 1) == h)
+	if (l == h)
 		return (-1);
 	if (array[mid] == value)
-	{
-		print_array(array, mid, h);
 		return (mid);
-	}
 	if (array[mid] > value)
 		return (actual_search(array, l, mid - 1, value));
 	else
-		return (actual_search(array, mid, h,  value));
+		return (actual_search(array, mid + 1, h,  value));
 }
 /**
  * binary_search - searches binarily
@@ -36,5 +33,5 @@ int actual_search(int *array, size_t l, size_t h, int value)
  */
 int binary_search(int *array, size_t size, int value)
 {
-	return actual_search(array, 0, size, value);
+	return actual_search(array, 0, size - 1, value);
 }
