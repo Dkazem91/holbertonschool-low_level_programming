@@ -49,5 +49,8 @@ int actual_search(int *array, size_t l, size_t h, int value)
  */
 int binary_search(int *array, size_t size, int value)
 {
+	if (!(array))
+		return (-1);
+
 	return (actual_search(array, 0, size - 1, value));
 }
