@@ -28,7 +28,7 @@ void print_array(int *array, size_t start, size_t end)
  */
 int actual_search(int *array, size_t l, size_t h, int value)
 {
-	size_t mid = (l + h) / 2;
+	size_t mid = l + (h - l) / 2;
 
 	print_array(array, l, h);
 	if (l == h)
