@@ -35,10 +35,14 @@ int actual_search(int *array, size_t l, size_t h, int value)
 		return (-1);
 	if (array[mid] == value)
 		return (mid);
-	if (array[mid] > value)
-		return (actual_search(array, l, mid - 1, value));
-	else
-		return (actual_search(array, mid + 1, h,  value));
+	if (h > l)
+	{
+		if (array[mid] > value)
+			return (actual_search(array, l, mid - 1, value));
+		else
+			return (actual_search(array, mid + 1, h,  value));
+	}
+	return (-1);
 }
 /**
  * binary_search - searches binarily
