@@ -31,10 +31,10 @@ int actual_search(int *array, size_t l, size_t h, int value)
 	size_t mid = l + (h - l) / 2;
 
 	print_array(array, l, h);
-	if (l == h)
-		return (-1);
 	if (array[mid] == value)
 		return (mid);
+	if (l == h)
+		return (-1);
 	if (h > l)
 	{
 		if (array[mid] > value)
