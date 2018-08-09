@@ -13,9 +13,9 @@ void print_array(int *array, size_t start, size_t end)
 	for (i = start; i <= end; i++)
 	{
 		if (i != end)
-			printf(" %d,", array[i]);
+			printf(" %u,", array[i]);
 		else
-			printf(" %d\n", array[i]);
+			printf(" %u\n", array[i]);
 	}
 }
 /**
